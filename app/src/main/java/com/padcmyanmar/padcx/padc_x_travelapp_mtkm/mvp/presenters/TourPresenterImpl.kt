@@ -8,7 +8,7 @@ import com.padcmyanmar.padcx.padc_x_travelapp_mtkm.mvp.views.TourView
 
 class TourPresenterImpl :TourPresenter, AbstractBaseTourPresenter<TourView>() {
 
-    private val mTourModel : TourModel=TourModelImpl
+     var mTourModel : TourModel=TourModelImpl
     override fun onSwipeFresh(lifecycleOwner: LifecycleOwner) {
         getTourData(lifecycleOwner)
     }
@@ -21,7 +21,7 @@ class TourPresenterImpl :TourPresenter, AbstractBaseTourPresenter<TourView>() {
         mView?.navigateToDetail(dataName)
     }
 
-    private fun getTourData(lifecycleOwner: LifecycleOwner){
+    fun getTourData(lifecycleOwner: LifecycleOwner){
         mView?.enableSwipeRefresh()
         mTourModel.getAllTour(
             onError = {
